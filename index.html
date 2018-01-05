@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .page-container{
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            overflow: hidden;
+        }
+        .page{
+            height: 1600px;
+            /* background: red; */
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./src/index.css">
+
+</head>
+<body>
+    <div class="page-container">
+        <div class="page" id="page">
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+            <p>这是文字。。。。</p>
+        </div>
+    </div>
+    <script src="./src/index.js"></script>
+    <script>
+        var scroll = new Scroll({
+            el: document.getElementById('page'),
+            transition: ['ease-out', 300],
+            lazy: true,
+            tick: 15,
+            switchedPage: function(page){
+                console.log(page);
+            },
+            beforeUpdate: function(){
+                console.log('beforeUpdate');
+            },
+            updated: function(){
+                console.log('updated');
+            }
+        });
+
+        setTimeout(function(){
+            scroll.update();
+        }, 3000)
+    
+    </script>
+</body>
+</html>
