@@ -1,10 +1,10 @@
-# -
-20180104面试
+- 使用
 
-#### 第一题，实现一个从1加到100的函数。
+```html
+  <link rel="stylesheet" href="./src/index.css">
+  <script src="./src/index.js"></script>
+```
 
 ```javascript
-  const add = function(a, b){
-      return a + b;
-  }
+ 
 ```
