@@ -6,6 +6,7 @@
 }(this, (function () {
     'use strict'
 
+    
     var animate_algorthim = {
         linear: function (t, b, c, d) {
             return c * t / d + b;
@@ -69,13 +70,16 @@
         return reg.test(UA);
     }
 
+    var isIE8 = isIE(8);
+
     function getProperty(ele, propertyName) {
 
         var elRect = ele.getBoundingClientRect();
         var clientRect = {};
 
-        //
-        if(isIE(8)){
+        //ie8 say clientRect is read-only
+        //make them happy
+        if(isIE8){
             for(var key in elRect){
                 clientRect[key] = elRect[key];
             }
@@ -274,6 +278,11 @@
         }
 
         return function (el, easing, duration, endPos) {
+
+            if(isIE8 && !(easing in animate_algorthim)){
+                easing = 'ease-in';
+            }
+
             var animate = new Animate(el);
             animate.start('top', -endPos, duration, easing);
         }
@@ -304,7 +313,8 @@
     Page.prototype = {
         _init: function () {
             updateCssText(this.$warp, {
-                position: 'relative'
+                position: 'relative',
+                overflow: 'hidden'
             });
             updateCssText(this.$el, {
                 position: 'absolute',
